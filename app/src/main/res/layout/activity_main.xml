@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.neura.dashboard.view.widget.RobotoButton
+        android:id="@+id/action_button"
+        style="@style/neura_sdk_auth_button"
+        android:layout_margin="8dp"
+        android:background="@color/neura_sdk_blue_btn"
+        android:elevation="1dp"
+        android:text="@string/login_neura"
+        android:textColor="@android:color/white" />
+
+    <com.neura.dashboard.view.widget.RobotoRegularTextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Logged in with Neura" />
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DrivingTextToSpeech</string>
+
+    <string name="app_uid">6ba10b2f30f49680a8a154c492697d809082b2e5c044209030902ffacc55a050</string>
+    <string name="app_secret">e170784565e7d961ca65e944c850e839507b1f59256a65f0ff4dd765ca6da8d4</string>
+    <string name="google_api_project_number">279210004793</string>
+
+    <string name="login_neura">Login with Neura</string>
+</resources>
