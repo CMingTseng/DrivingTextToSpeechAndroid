@@ -18,7 +18,8 @@ public class NeuraEventsBroadcastReceiver extends BroadcastReceiver {
             NeuraEvent event = NeuraGCMCommandFactory.getInstance().getEvent(intent);
             String eventText = event != null ? event.toString() : "couldn't parse data";
             Log.i(getClass().getSimpleName(), "received Neura event - " + eventText);
-            Utils.setIsDriving(context, Utils.STARTED_DRIVING.equals(event.getEventName()));
+            Utils.setLatestEvent(context, Utils.STARTED_DRIVING.equals(event.getEventName()),
+                    event.getEventTimestamp());
 
             //Just for the sampling of this application, we're generating a notification after an event is received.
             (new Handler()).postDelayed(new Runnable() {

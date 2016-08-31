@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.neura.resources.authentication.AuthenticateCallback;
 import com.neura.resources.authentication.AuthenticateData;
@@ -15,6 +16,9 @@ import com.neura.sdk.service.SubscriptionRequestCallbacks;
 import com.neura.standalonesdk.service.NeuraApiClient;
 import com.neura.standalonesdk.util.Builder;
 import com.neura.standalonesdk.util.SDKUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * While driving, generating text to speech notifications.
@@ -37,6 +41,9 @@ import com.neura.standalonesdk.util.SDKUtils;
 public class MainActivity extends AppCompatActivity {
 
     private Button mLoginButton;
+    private TextView mLatestDrivingState;
+    private TextView mLatestDrivingTime;
+
     private NeuraApiClient mNeuraApiClient;
 
     @Override
@@ -45,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mLoginButton = (Button) findViewById(R.id.action_button);
+        mLatestDrivingState = (TextView) findViewById(R.id.latest_driving_state);
+        mLatestDrivingTime = (TextView) findViewById(R.id.latest_driving_time);
 
         initNeuraConnection();
 
@@ -59,8 +68,30 @@ public class MainActivity extends AppCompatActivity {
             });
     }
 
+    /**
+     * Setting current driving state - in case we've received a driving event on
+     * {@link NeuraEventsBroadcastReceiver} when the application was open in the background,
+     * or in case it was just opened.
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (!SDKUtils.isConnected(this, mNeuraApiClient))
+            return;
+
+        long timestamp = Utils.getLatestEventTime(this);
+        if (timestamp > 0) {
+            mLatestDrivingState.setText(Utils.isDriving(this) ? "You are currently driving from : " : "You finished driving at : ");
+            mLatestDrivingTime.setText(getDefaultTime(Utils.getLatestEventTime(this)));
+        } else {
+            //There's no enough data from Neura.
+            mLatestDrivingState.setText(
+                    "No data yet,\nwaiting for the 1st start/finish driving event.");
+        }
+    }
+
     private void initNeuraConnection() {
-        Builder builder = new Builder(this);
+        Builder builder = new Builder(getApplicationContext());
         mNeuraApiClient = builder.build();
         mNeuraApiClient.setAppUid(getResources().getString(R.string.app_uid));
         mNeuraApiClient.setAppSecret(getResources().getString(R.string.app_secret));
@@ -105,4 +136,12 @@ public class MainActivity extends AppCompatActivity {
             Log.i(getClass().getSimpleName(), "Failed to subscribe " + s + " Reason : " + SDKUtils.errorCodeToString(i));
         }
     };
+
+    private String getDefaultTime(long timestamp) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(timestamp * 1000);
+        SimpleDateFormat sdf = new SimpleDateFormat("MMddyyyy HH:mm:ss");
+        return sdf.format(cal.getTime());
+    }
+
 }

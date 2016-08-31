@@ -36,7 +36,8 @@ public class NotificationGeneratorService extends Service {
     }
 
     public void generateNotification() {
-        String message = Utils.isDriving(getApplicationContext()) ? "You are currently driving" : "You are not driving at the moment";
+        String message = Utils.isDriving(getApplicationContext())
+                ? "You are currently driving" : "You are not driving at the moment";
 
         Bitmap largeIcon = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.mipmap.ic_launcher);
 

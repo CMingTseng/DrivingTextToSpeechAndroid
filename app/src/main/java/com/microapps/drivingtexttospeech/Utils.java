@@ -11,14 +11,20 @@ public class Utils {
     /**
      * Preferences definitions - saving the current state of a user's driving mode.
      */
-    private static final String KEY_DRIVING = "KeyDriving";
+    public static final String KEY_LATEST_EVENT = "keyLatestEvent";
+    public static final String KEY_LATEST_EVENT_TIME = "keyLatestEventTime";
 
-    public static void setIsDriving(Context context, boolean driving) {
+    public static void setLatestEvent(Context context, boolean driving, long timestamp) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(KEY_LATEST_EVENT, driving).commit();
         PreferenceManager.getDefaultSharedPreferences(context).edit().
-                putBoolean(KEY_DRIVING, driving).commit();
+                putLong(KEY_LATEST_EVENT_TIME, timestamp).commit();
     }
 
     public static boolean isDriving(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(KEY_DRIVING, false);
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(KEY_LATEST_EVENT, false);
+    }
+
+    public static long getLatestEventTime(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getLong(KEY_LATEST_EVENT_TIME, 0);
     }
 }
