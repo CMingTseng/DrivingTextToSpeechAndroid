@@ -2,6 +2,7 @@
 Turns notifications to speech notification when you're driving
 
 <img src="https://s3.postimg.org/7js7hxtir/notify.png" alt="notify" width="216" height="384">
+<img src="https://s22.postimg.org/7wk8mvpf5/events_history.png" alt="events_history" width="216" height="384">
 
 ##Introduction
 This is a native Android application which uses <a href="http://www.theneura.com/">Neura</a> in order to announce notification messages using Text-To-Speech, so you won't need to look at your screen while you're driving. 
