@@ -6,4 +6,5 @@
     <string name="google_api_project_number">279210004793</string>
 
     <string name="login_neura">Login with Neura</string>
+    <string name="events_history">Events History</string>
 </resources>

@@ -6,36 +6,39 @@
     <com.neura.dashboard.view.widget.RobotoButton
         android:id="@+id/action_button"
         style="@style/neura_sdk_auth_button"
+        android:layout_alignParentTop="true"
         android:layout_margin="8dp"
         android:background="@color/neura_sdk_blue_btn"
         android:elevation="1dp"
         android:text="@string/login_neura"
         android:textColor="@android:color/white" />
 
+    <com.neura.dashboard.view.widget.RobotoMediumTextView
+        android:id="@+id/history_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="@string/events_history"
+        android:textColor="@color/neura_sdk_blue_btn"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/events_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/history_header"
+        android:padding="10dp" />
+
     <com.neura.dashboard.view.widget.RobotoRegularTextView
-        android:id="@+id/text"
+        android:id="@+id/no_events"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Logged in with Neura" />
-
-    <com.neura.dashboard.view.widget.RobotoMediumTextView
-        android:id="@+id/latest_driving_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:padding="10dp"
-        android:textColor="@color/neura_sdk_blue_btn" />
-
-    <com.neura.dashboard.view.widget.RobotoMediumTextView
-        android:id="@+id/latest_driving_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/latest_driving_state"
-        android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:textColor="@color/neura_sdk_blue_btn" />
+        android:padding="15dp"
+        android:text="No data yet,waiting for the 1st start/finish driving event."
+        android:textSize="15sp"
+        android:visibility="gone" />
 
 </RelativeLayout>

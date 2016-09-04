@@ -20,9 +20,13 @@ import java.util.Locale;
  */
 public class NotificationGeneratorService extends Service {
 
+    private boolean mIsDriving = false;
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
+
+        mIsDriving = intent.getBooleanExtra(Utils.KEY_EVENT, false);
 
         generateNotification();
 
@@ -36,8 +40,7 @@ public class NotificationGeneratorService extends Service {
     }
 
     public void generateNotification() {
-        String message = Utils.isDriving(getApplicationContext())
-                ? "You are currently driving" : "You are not driving at the moment";
+        String message = mIsDriving ? "You are currently driving" : "You are not driving at the moment";
 
         Bitmap largeIcon = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.mipmap.ic_launcher);
 
@@ -50,9 +53,8 @@ public class NotificationGeneratorService extends Service {
                 .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0))
                 .setWhen(System.currentTimeMillis());
 
-        if (Utils.isDriving(getApplicationContext())) {
+        if (mIsDriving)
             sayText(getApplicationContext(), message);
-        }
 
         Notification notification = builder.build();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
