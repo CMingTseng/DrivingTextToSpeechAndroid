@@ -39,6 +39,7 @@ If you're not interested in detecting driving, but interested in what else Neura
 <ul className={commonClasses['menu']}>
    <li>Go to Neura's <a href='https://dev.theneura.com/docs/guide/android/samples'>Sample Applications</a>.</li>
    <li>Search our <a href='https://github.com/NeuraLabs?utf8=%E2%9C%93&query=android'>GitHub public repository</a>.</li>
+</ul>
 
 ##Installing the apk
 1. Pull this git project to your Android Studio environment.
