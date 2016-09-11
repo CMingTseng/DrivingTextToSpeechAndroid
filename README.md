@@ -16,6 +16,30 @@ This is a native Android application which uses <a href="http://www.theneura.com
 1. Go over the <a href="https://dev.theneura.com/docs/guide/android/sdk">android sdk guide</a>.
 2. Neura sdk has fully methods and classes reference, <a href ="http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html">check it out</a>
 
+##What does this project do ?
+<ul className={commonClasses['menu']}>
+   <li><a href='https://dev.theneura.com/docs/guide/android/setup#authenticate'>Authenticating</a> with Neura : 
+      For every integration you make with Neura Sdk, authentication is mandatory in order to register a user with Neura.</li>
+   <li><a href='https://dev.theneura.com/docs/guide/android/usage#subscribe'>Subscribe and remove subscription</a> from events : 
+      In order to receive events from Neura, you need to declare which event you wish to receive.
+      For the method overview, go to <a href='http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html#subscribeToEvent-java.lang.String-java.lang.String-boolean-com.neura.sdk.service.SubscriptionRequestCallbacks-' target="_blank">here</a>.</li>
+   <li>Receive events using <a href="https://dev.theneura.com/docs/guide/android/pushnotification'>push notification</a>
+      <br/>There are 2 ways you can <a href='https://dev.theneura.com/docs/guide/android/usage#receive'>receive events</a> from Neura, in this sample, we're using <a href='https://developers.google.com/cloud-messaging/' target="_blank">Google Cloud Messaging</a>.
+   </li>
+   <li><a href='http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html#getMissingDataForEvent-java.lang.String-com.neura.resources.data.PickerCallback-' target="_blank">Define locations : home/work/gym etc..</a> : 
+      Neura is able to locate significant places of your user, but, the learning process takes few days. 
+      Nevertheless, you can display a dialog for your user to select his/her event related place.
+      For example, if you wish to receive the event <code>userLeftHome</code>, you can display a dialog for your user to select his/her home.
+      <br/>Fyi, you can <b>ask the api if home is missing</b> by calling <a href='http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html#isMissingDataForEvent-java.lang.String-' target="_blank"><code>isMissingDataForEvent</code></a>.
+   </li>
+</ul>
+
+##Want to see more sample applications using Neura ? 
+If you're not interested in detecting driving, but interested in what else Neura can do : 
+<ul className={commonClasses['menu']}>
+   <li>Go to Neura's <a href='https://dev.theneura.com/docs/guide/android/samples'>Sample Applications</a>.</li>
+   <li>Search our <a href='https://github.com/NeuraLabs?utf8=%E2%9C%93&query=android'>GitHub public repository</a>.</li>
+
 ##Installing the apk
 1. Pull this git project to your Android Studio environment.
 2. Build and install on a phone(which has 3g internet access, and location services turned on).
