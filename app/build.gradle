@@ -20,5 +20,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.theneura:android-sdk:4.0.0'
+    compile 'com.theneura:android-sdk:4.0.1'
 }
