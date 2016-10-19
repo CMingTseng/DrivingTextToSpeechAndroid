@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "279210004793",
+    "firebase_url": "https://drivingtexttospeech.firebaseio.com",
+    "project_id": "drivingtexttospeech",
+    "storage_bucket": "drivingtexttospeech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279210004793:android:9f982f6b1c336366",
+        "android_client_info": {
+          "package_name": "com.microapps.drivingtexttospeech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279210004793-5epliitol3k7atse9eqgpa53v7n89th4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.microapps.drivingtexttospeech",
+            "certificate_hash": "6B75009C57AFF3168D005F5618998BB5C60093F5"
+          }
+        },
+        {
+          "client_id": "279210004793-0br1a96s3asr0qe8jdma61h32g9n7r95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0efiBjSpkV4yF5k20QwMLsDUYRcq5eZw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279210004793-0br1a96s3asr0qe8jdma61h32g9n7r95.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

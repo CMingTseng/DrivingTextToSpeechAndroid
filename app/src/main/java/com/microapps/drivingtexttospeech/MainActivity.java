@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.microapps.drivingtexttospeech.history.EventHistoryItem;
 import com.microapps.drivingtexttospeech.history.HistoryAdapter;
 import com.neura.resources.authentication.AuthenticateCallback;
@@ -29,13 +32,13 @@ import java.util.ArrayList;
  * 2. Login to Neura
  * 3. Subscribing to events (done in {@link #authenticateWithNeura()}
  * 4. Receiving push event for {@link Utils#FINISHED_DRIVING} and {@link Utils#STARTED_DRIVING}
- * which will be received on {@link NeuraEventsBroadcastReceiver}.
+ * which will be received on {@link NeuraEventsService}.
  * Here's a full guide on declaring receiving push events from Neura :
  * <a ref="https://dev.theneura.com/docs/guide/android/pushnotification">Push notification integration</a>
  * You need to :
  * ____a. set Server Key to your application on the Neura dev site.
  * ____b. Declare permissions in the AndroidManifest.
- * ____c. Build BroadcastReceiver which will handle the push {@link NeuraEventsBroadcastReceiver}
+ * ____c. Build BroadcastReceiver which will handle the push {@link NeuraEventsService}
  * ____d. Call {@link NeuraApiClient#registerPushServerApiKey(Activity, String)} right after
  * _______authenticating with Neura(this is done on {@link #authenticateWithNeura()}
  */
@@ -49,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //http://stackoverflow.com/a/38945375/5130239
+        try {
+            FirebaseApp.getInstance();
+        } catch (IllegalStateException ex) {
+            FirebaseApp.initializeApp(this, FirebaseOptions.fromResource(this));
+        }
 
         mLoginButton = (Button) findViewById(R.id.action_button);
 
@@ -67,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Setting current driving state - in case we've received a driving event on
-     * {@link NeuraEventsBroadcastReceiver} when the application was open in the background,
+     * {@link NeuraEventsService} when the application was open in the background,
      * or in case it was just opened.
      */
     @Override
@@ -108,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 mNeuraApiClient.subscribeToEvent(Utils.FINISHED_DRIVING, "identifier_" + Utils.FINISHED_DRIVING, true, subscriptionRequestCallbacks);
                 mNeuraApiClient.subscribeToEvent(Utils.STARTED_DRIVING, "identifier_" + Utils.STARTED_DRIVING, true, subscriptionRequestCallbacks);
 
-                mNeuraApiClient.registerPushServerApiKey(MainActivity.this, getString(R.string.google_api_project_number));
+                mNeuraApiClient.registerFirebaseToken(MainActivity.this, FirebaseInstanceId.getInstance().getToken());
 
                 mLoginButton.setVisibility(View.GONE);
                 findViewById(R.id.no_events).setVisibility(View.VISIBLE);

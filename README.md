@@ -68,9 +68,7 @@ If you wish to take MuteAtWork project, and integrate your own credentials, here
   - Open ```strings.xml``` file, and update ```app_uid``` and ```app_secret``` with your own values.
     <br/>Your values can be received from <a href="https://dev.theneura.com/console/">Applications console</a>, just copy your uid and secret : <br/>
     ![uid_secret](https://s21.postimg.org/3qpj2gurr/uid_secret.png)
-  - Follow our <a href="https://dev.theneura.com/docs/guide/android/pushnotification"> push notification guide</a> in order to generate 'Project Number' and 'server key'.
-    <br/>a.&nbsp;&nbsp;&nbsp;<a href ="https://dev.theneura.com/console">Open your project</a> and set 'server key' to 'Android Push Credentials' under 'Tech Info' section.
-    <br/>b.&nbsp;&nbsp;&nbsp;Open ```strings.xml``` file and set your own 'Project Number' to ```google_api_project_number``` resource.
+  - In order to receive events from Neura, follow our <a href="https://dev.theneura.com/docs/guide/android/pushnotification"> push notification guide</a> to integrate <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging</a>.
 3. That's it, you have your own application detecting when a user leaves and arrives home.
 
 ##Testing while developing

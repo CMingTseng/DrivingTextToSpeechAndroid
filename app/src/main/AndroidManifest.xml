@@ -2,14 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.microapps.drivingtexttospeech">
 
-    <!-- required for GCM push notifications -->
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission
-        android:name="com.microapps.drivingtexttospeech.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="com.microapps.drivingtexttospeech.permission.C2D_MESSAGE" />
-    <!-- End of GCM definitions -->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,16 +29,12 @@
             </intent-filter>
         </receiver>
 
-        <!-- Receiver for GCM push notifications -->
-        <receiver
-            android:name=".NeuraEventsBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+        <!-- Receiving fcm events from Neura -->
+        <service android:name=".NeuraEventsService">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="com.microapps.drivingtexttospeech" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </receiver>
+        </service>
     </application>
 
 </manifest>
