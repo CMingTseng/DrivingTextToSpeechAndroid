@@ -55,16 +55,16 @@ If you're not interested in detecting driving, but interested in what else Neura
 
 ##Setting this application to be your own
 
-If you wish to take MuteAtWork project, and integrate your own credentials, here are some basic steps that will help you during integration :
+If you wish to take DrivingTextToSpeech project, and integrate your own credentials, here are some basic steps that will help you during integration :
 
 1. <a href ="https://dev.theneura.com/console/new">Add an application</a>(If you haven't registers to Neura, you'll have to create a new account).
   * Make sure that under 'Tech Info' (2nd section) you're specifying your own 'Application Package Name'. 
-  * Under 'Permissions' select 'Whenever a user leaves work' and 'Whenever a user arrives to work'.
-2. Apply your own definitions to MuteAtWork
-  - Replace all occurrences of ```com.microapps.muteatwork``` with your own 'Application Package Name' :
+  * Under 'Permissions' select 'Whenever a user starts driving' and 'Whenever a user finishes driving'.
+2. Apply your own definitions to DrivingTextToSpeech
+  - Replace all occurrences of ```com.microapps.drivingtexttospeech``` with your own 'Application Package Name' :
     <br/>a.&nbsp;&nbsp;&nbsp;Application's ```build.gradle``` file.
     <br/>b.&nbsp;&nbsp;&nbsp;```AndroidManifest.xml``` file.
-    <br/>c.&nbsp;&nbsp;&nbsp;All classes that have ```package com.microapps.muteatwork```.
+    <br/>c.&nbsp;&nbsp;&nbsp;All classes that have ```package com.microapps.drivingtexttospeech```.
   - Open ```strings.xml``` file, and update ```app_uid``` and ```app_secret``` with your own values.
     <br/>Your values can be received from <a href="https://dev.theneura.com/console/">Applications console</a>, just copy your uid and secret : <br/>
     ![uid_secret](https://s21.postimg.org/3qpj2gurr/uid_secret.png)
