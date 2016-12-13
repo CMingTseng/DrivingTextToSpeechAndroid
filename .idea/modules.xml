@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DrivingTextToSpeech.iml" filepath="$PROJECT_DIR$/DrivingTextToSpeech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DrivingTextToSpeechAndroid.iml" filepath="$PROJECT_DIR$/DrivingTextToSpeechAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

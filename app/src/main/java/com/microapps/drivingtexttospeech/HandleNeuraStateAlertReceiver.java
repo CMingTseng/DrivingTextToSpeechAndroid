@@ -2,7 +2,7 @@ package com.microapps.drivingtexttospeech;
 
 import android.content.Context;
 
-import com.neura.android.statealert.SensorsManager;
+import com.neura.resources.sensors.SensorType;
 import com.neura.standalonesdk.util.NeuraStateAlertReceiver;
 
 public class HandleNeuraStateAlertReceiver extends NeuraStateAlertReceiver {
@@ -16,6 +16,8 @@ public class HandleNeuraStateAlertReceiver extends NeuraStateAlertReceiver {
     }
 
     @Override
-    public void onSensorDisabled(Context context, SensorsManager.Type sensorType) {
+    public void onSensorStateChanged(Context context, SensorType sensorType, boolean b) {
+
     }
+
 }
