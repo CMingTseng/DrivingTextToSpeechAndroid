@@ -13,7 +13,7 @@ This is a native Android application which uses <a href="http://www.theneura.com
 2. Android studio installed.
 
 ##Before you start
-1. Go over the <a href="https://dev.theneura.com/docs/guide/android/sdk">android sdk guide</a>.
+1. Go over the <a href="https://dev.theneura.com/docs/guide/android/setup">android sdk guide</a>.
 2. Neura sdk has fully methods and classes reference, <a href ="http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html">check it out</a>
 
 ##What does this project do ?
