@@ -1,22 +1,21 @@
 # DrivingTextToSpeechAndroid
 Turns notifications to speech notification when you're driving
 
-<img src="https://s3.postimg.org/7js7hxtir/notify.png" alt="notify" width="216" height="384">
 <img src="https://s22.postimg.org/7wk8mvpf5/events_history.png" alt="events_history" width="216" height="384">
 
-##Introduction
+## Introduction
 This is a native Android application which uses <a href="http://www.theneura.com/">Neura</a> in order to announce notification messages using Text-To-Speech, so you won't need to look at your screen while you're driving. 
 <br/>Go to <a href="https://dev.theneura.com/docs/getstarted">getting started with Neura</a> for more details.
 
-##Requirements 
+## Requirements 
 1. Basic android knowledge.
 2. Android studio installed.
 
-##Before you start
-1. Go over the <a href="https://dev.theneura.com/docs/guide/android/sdk">android sdk guide</a>.
+## Before you start
+1. Go over the <a href="https://dev.theneura.com/docs/guide/android/setup">android sdk guide</a>.
 2. Neura sdk has fully methods and classes reference, <a href ="http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html">check it out</a>
 
-##What does this project do ?
+## What does this project do ?
 <ul className={commonClasses['menu']}>
    <li><a href='https://dev.theneura.com/docs/guide/android/setup#authenticate'>Authenticating</a> with Neura : 
       For every integration you make with Neura Sdk, authentication is mandatory in order to register a user with Neura.</li>
@@ -34,14 +33,14 @@ This is a native Android application which uses <a href="http://www.theneura.com
    </li>
 </ul>
 
-##Want to see more sample applications using Neura ? 
+## Want to see more sample applications using Neura ? 
 If you're not interested in detecting driving, but interested in what else Neura can do : 
 <ul className={commonClasses['menu']}>
    <li>Go to Neura's <a href='https://dev.theneura.com/docs/guide/android/samples'>Sample Applications</a>.</li>
    <li>Search our <a href='https://github.com/NeuraLabs?utf8=%E2%9C%93&query=android'>GitHub public repository</a>.</li>
 </ul>
 
-##Installing the apk
+## Installing the apk
 1. Pull this git project to your Android Studio environment.
 2. Build and install on a phone(which has 3g internet access, and location services turned on).
 3. When the application is installed, press 'Login with Neura'.
@@ -53,7 +52,7 @@ If you're not interested in detecting driving, but interested in what else Neura
    <br/>Plus, you'll see in the main screen the specific event and the time it occurred.
 7. That's it, you're good to go!
 
-##Setting this application to be your own
+## Setting this application to be your own
 
 If you wish to take DrivingTextToSpeech project, and integrate your own credentials, here are some basic steps that will help you during integration :
 
@@ -71,12 +70,12 @@ If you wish to take DrivingTextToSpeech project, and integrate your own credenti
   - In order to receive events from Neura, follow our <a href="https://dev.theneura.com/docs/guide/android/pushnotification"> push notification guide</a> to integrate <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging</a>.
 3. That's it, you have your own application detecting when a user leaves and arrives home.
 
-##Testing while developing
+## Testing while developing
 Obviously, it's not very convenient for a developer to receive start and finish driving on realtime, so, Neura has generated an events simulation, and you can connect it with your application by calling : ```mNeuraApiClient.simulateAnEvent();``` and for example, generate the event : 'UserStartedDriving'<br/>
 FYI, you need to be logged in to Neura in order to simulate an event.<br/> 
 You can read about it more on <a href ="http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html#simulateAnEvent--">Simulate event method</a>.
 
-##Support
+## Support
 1. Go to <a href="https://dev.theneura.com/docs/getstarted">getting started with Neura</a> for more details.
 2. You can read classes and api methods at <a href ="http://docs.theneura.com/android/com/neura/standalonesdk/service/NeuraApiClient.html">Neura Sdk Reference</a>.
 3. You can ask question and view existing questions with the Neura tag on <a href="https://stackoverflow.com/questions/tagged/neura?sort=newest&pageSize=30">StackOverflow</a>.
